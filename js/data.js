@@ -96,8 +96,8 @@ const SIMILAR_POSTS_COUNT = 25;
 
 
 // Функция создания объекта
-const createPost = () => ({
-  id: createUniqueNumberFromArray(IDS),
+const createPost = (element,index) => ({
+  id: index+1,
   url: `photos/${createUniqueNumberFromArray(URLS)}.jpg`,
   DESCRIPTIONS: DESCRIPTIONS[getRandomPositiveInteger(0, DESCRIPTIONS.length - 1)],
   LIKES: LIKES[getRandomPositiveInteger(14, LIKES.length - 1)],
@@ -107,10 +107,11 @@ const createPost = () => ({
 
 const similarPosts = Array.from({length: SIMILAR_POSTS_COUNT}, createPost);
 
+const generatePosts = () => Array.from({length: SIMILAR_POSTS_COUNT}, createPost);
 
 // eslint-disable-next-line no-console
 console.log(similarPosts);
 
-export { createPost};
+export { generatePosts};
 
 
